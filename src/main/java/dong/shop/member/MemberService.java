@@ -11,15 +11,15 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    Member save(Member member) {
+    public Member save(Member member) {
         return memberRepository.save(member);
     }
 
-    Member findByid(Long id) {
+    public Member findByid(Long id) {
         return memberRepository.findById(id);
     }
 
-    List<Member> findAll() {
+    public List<Member> findAll() {
         return memberRepository.findAll();
     }
 }

@@ -11,4 +11,14 @@ public class Item {
     private Integer price;
     private String info;
     private ItemStatus itemStatus;
+
+    public Item() {
+    }
+
+    public Item(Long itemId, String itemName, Integer price, ItemStatus itemStatus) {
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.price = price;
+        this.itemStatus = itemStatus;
+    }
 }

@@ -13,4 +13,11 @@ public class Member {
     private MemberStatus memberStatus;
     private Account account;
 
+    public Member() {
+    }
+
+    public Member(String username, MemberStatus memberStatus) {
+        this.username = username;
+        this.memberStatus = memberStatus;
+    }
 }
