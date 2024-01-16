@@ -58,22 +58,13 @@ class OrderServiceTest {
 
     @Test
     void createOrderTest() {
-
-        Order initOrder = new Order();
-
         Member findMember = memberService.findByid(1L);
         Item item = itemRepository.findItembyId(1L);
+        OrderRequestDto orderRequestDto = new OrderRequestDto(findMember, item, 10);
+        Order order = orderService.createOrder(orderRequestDto);
 
-
-        initOrder.setMemberId(1L);
-        initOrder.setItemId(1L);
-        initOrder.setCount(3);
-
-        int afterDiscountPrice = discountPolicy.discount(findMember, item.getPrice() * initOrder.getCount());
-        initOrder.setTotalPrice(afterDiscountPrice);
-
-        assertThat(initOrder.getTotalPrice()).isEqualTo(27000);
-
+        System.out.println(order);
+        Assertions.assertThat(order.getItem()).isEqualTo(item);
     }
 
 }

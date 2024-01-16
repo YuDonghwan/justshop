@@ -1,5 +1,6 @@
 package dong.shop.order;
 
+import dong.shop.delivery.Delivery;
 import dong.shop.discount.DiscountPolicy;
 import dong.shop.item.Item;
 import dong.shop.item.ItemRepository;
@@ -20,15 +21,13 @@ public class OrderService {
     private final ItemRepository itemRepository;
     private final DiscountPolicy discountPolicy;
 
-    public Order createOrder(Long memberId, Order order) {
+    public Order createOrder(OrderRequestDto orderRequestDto) {
 
-        int totalPrice = order.getTotalPrice();
+        int totalPrice = orderRequestDto.getTotalPrice();
+        int resultPrice = discountPolicy.discount(orderRequestDto.getMember(), totalPrice);
+        Delivery delivery = new Delivery();
 
-        Item findItem = itemRepository.findItembyId(order.getItemId());
-
-        System.out.println("totalPrice = " + totalPrice);
-
-        return new Order(findItem.getItemId(), 0,memberId);
+        return new Order(orderRequestDto.getItem(),orderRequestDto.getCount(),resultPrice,delivery,orderRequestDto.getMember());
     }
 
 }

@@ -2,6 +2,7 @@ package dong.shop.order;
 
 import dong.shop.delivery.Delivery;
 import dong.shop.item.Item;
+import dong.shop.member.Member;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -13,25 +14,23 @@ import java.util.List;
 public class Order {
 
     private Long id;
-    private Long itemId;
+    private Item item;
     private int count;
     private int totalPrice;
     private Delivery delivery;
-    private Long memberId;
+    private Member member;
 
     private List<Item> buyItems;
 
 
     public Order() {
     }
-    public Order(Long itemId, int totalPrice, Long memberId) {
-        this(itemId, totalPrice, new Delivery(), memberId);
-    }
 
-    public Order(Long itemId, int totalPrice, Delivery delivery, Long memberId) {
-        this.itemId = itemId;
+    public Order(Item item, int count, int totalPrice, Delivery delivery, Member member) {
+        this.item = item;
+        this.count = count;
         this.totalPrice = totalPrice;
         this.delivery = delivery;
-        this.memberId = memberId;
+        this.member = member;
     }
 }
