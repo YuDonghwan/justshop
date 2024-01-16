@@ -28,6 +28,7 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
+	//Test에서 SpringRunner를 사용하게 해주는 녀석
 	testImplementation("org.junit.vintage:junit-vintage-engine") {   exclude group: "org.hamcrest", module: "hamcrest-core"}
 }
 

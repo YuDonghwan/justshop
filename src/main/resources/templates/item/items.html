@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.rtl.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-grid.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-grid.rtl.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-reboot.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-reboot.rtl.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap-utilities.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <link th:href="@{/css/bootstrap.utilities.rtl.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .container {
+            max-width: 560px;
+        }
+    </style>
+</head>
+<body>
+ <div th:class="container" th:text="${data}"></div>
+ <div class="container text-center">
+     <div class="row align-items-start">
+         <div class="col" th:text="안녕하세요">
+             One of three columns
+         </div>
+         <div class="col">
+             One of three columns
+         </div>
+         <div class="col">
+             One of three columns
+         </div>
+     </div>
+ </div>
+</body>
+</html>
