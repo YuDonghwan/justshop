@@ -12,30 +12,37 @@ public class Item {
     private String itemName;
     private Integer price;
     private String info;
+
     private ItemStatus itemStatus;
 
     public Item() {
     }
 
-    public Item(Long itemId, String itemName, Integer price, ItemStatus itemStatus) {
+    public Item(Long itemId, String itemName, Integer price) {
         this.itemId = itemId;
         this.itemName = itemName;
         this.price = price;
-        this.itemStatus = itemStatus;
     }
 
-    public Item(Long itemId, String itemName, Integer price, ItemStatus itemStatus,String info) {
-        this(itemId, itemName, price, itemStatus);
+    public Item(Long itemId, String itemName, Integer price,String info) {
+        this(itemId, itemName, price);
         this.info = info;
     }
 
+    public Item(Long itemId, String itemName, Integer price, String info, ItemStatus itemStatus) {
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.price = price;
+        this.info = info;
+        this.itemStatus = itemStatus;
+    }
 
     public static Item of(String itemName, Integer price, String info, ItemStatus itemStatus) {
         return Item.builder()
                 .itemName(itemName)
                 .price(price)
-                .itemStatus(itemStatus)
                 .info(info)
+                .itemStatus(itemStatus)
                 .build();
     }
 }

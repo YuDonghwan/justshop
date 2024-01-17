@@ -1,6 +1,8 @@
 package dong.shop.member;
 
 import dong.shop.config.AppConfig;
+import dong.shop.item.Item;
+import dong.shop.item.ItemStatus;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -22,27 +24,27 @@ class MemberServiceTest {
 
     @Autowired
    MemberService memberService;
-//    MemberService memberService = new MemberService(new MemorymemberRepository());
 
-//    @BeforeEach
-//    void beforeEach() {
-//        ApplicationContext ac = new AnnotationConfigApplicationContext();
-//
-//    }
+    @BeforeEach
+    void addMember() {
+        System.out.println("OrderServiceTest.addMember");
 
+        MemberDto userA = new MemberDto("usera", "1234", "userA", "서울");
+        MemberDto userB = new MemberDto("userb", "1234", "userB", "부산");
+        MemberDto userC = new MemberDto("userc", "1234", "userC", "대구");
 
+        MemberDto.of("userD","1234","userD","대전");
+
+        memberService.save(userA);
+        memberService.save(userB);
+        memberService.save(userC);
+    }
     @Test
     void saveMember() {
-//        Member member = new Member();
-//        member.setMemberStatus(MemberStatus.BASIC);
-//        member.setId(1L);
-//        member.setUserId("user1");
-//        member.setUsername("userA");
-//        member.setPassword("1234");
-//        System.out.println("MemberServiceTest.saveMember");
-//        Member savedMember = memberService.save(member);
-//
-//        Assertions.assertThat(member).isEqualTo(savedMember);
+        MemberDto userE = new MemberDto("usere", "1234", "userE", "서울");
+        Member savedMember = memberService.save(userE);
+
+        Assertions.assertThat(savedMember.getAccount().getAccount()).isEqualTo(0);
     }
 
 }

@@ -1,10 +1,12 @@
 package dong.shop.member;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @Builder
+@AllArgsConstructor
 public class MemberDto {
     private Long id;
     private String userId;
@@ -19,16 +21,11 @@ public class MemberDto {
         this.password = password;
         this.username = username;
         this.address = address;
-        this.memberStatus = MemberStatus.BASIC;
+        this.account = new Account();
     }
 
-    public MemberDto(Long id, String userId, String password, String username, String address, Account account, MemberStatus memberStatus) {
-        this.id = id;
-        this.userId = userId;
-        this.password = password;
-        this.username = username;
-        this.address = address;
-        this.account = account;
+    public MemberDto(String userId, String password, String username, String address, Account account, MemberStatus memberStatus) {
+        this(userId,password,username,address);
         this.memberStatus = memberStatus;
     }
 
@@ -42,4 +39,6 @@ public class MemberDto {
                 .memberStatus(MemberStatus.BASIC)
                 .build();
     }
+
+
 }

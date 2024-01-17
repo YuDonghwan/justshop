@@ -15,10 +15,11 @@ public class Order {
 
     private Long id;
     private Item item;
-    private int count;
+    private int itemCount;
     private int totalPrice;
     private Delivery delivery;
     private Member member;
+    private OrderStatus orderStatus;
 
 
     public Order() {
@@ -26,7 +27,7 @@ public class Order {
 
     public Order(Item item, int count, int totalPrice, Delivery delivery, Member member) {
         this.item = item;
-        this.count = count;
+        this.itemCount = itemCount;
         this.totalPrice = totalPrice;
         this.delivery = delivery;
         this.member = member;

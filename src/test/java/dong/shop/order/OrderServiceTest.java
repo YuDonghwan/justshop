@@ -45,9 +45,9 @@ class OrderServiceTest {
         memberService.save(userB);
         memberService.save(userC);
 
-        Item item1 = new Item(1L, "사과", 10000, ItemStatus.BASIC);
-        Item item2 = new Item(2L, "배", 13000, ItemStatus.BASIC);
-        Item item3 = new Item(3L, "귤", 10000, ItemStatus.BASIC);
+        Item item1 = new Item(1L, "사과", 10000);
+        Item item2 = new Item(2L, "배", 13000);
+        Item item3 = new Item(3L, "귤", 10000);
 
          itemRepository.saveItem(item1);
          itemRepository.saveItem(item2);
