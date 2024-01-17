@@ -11,8 +11,9 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public Member save(Member member) {
-        return memberRepository.save(member);
+    public Member save(MemberDto memberDto) {
+        Member newMember = Member.of(memberDto);
+        return memberRepository.save(newMember);
     }
 
     public Member findByid(Long id) {

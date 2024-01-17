@@ -5,8 +5,8 @@ import dong.shop.item.Item;
 import dong.shop.item.MemoryItemRepository;
 import dong.shop.item.ItemStatus;
 import dong.shop.member.Member;
+import dong.shop.member.MemberDto;
 import dong.shop.member.MemberService;
-import dong.shop.member.MemberStatus;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,9 +34,12 @@ class OrderServiceTest {
     @BeforeEach
     void addMember() {
         System.out.println("OrderServiceTest.addMember");
-        Member userA = new Member("userA", MemberStatus.VIP);
-        Member userB = new Member("userB", MemberStatus.BASIC);
-        Member userC = new Member("userC", MemberStatus.ADMIN);
+
+        MemberDto userA = new MemberDto("usera", "1234", "userA", "서울");
+        MemberDto userB = new MemberDto("userb", "1234", "userB", "부산");
+        MemberDto userC = new MemberDto("userc", "1234", "userC", "대구");
+
+        MemberDto.of("userD","1234","userD","대전");
 
         memberService.save(userA);
         memberService.save(userB);

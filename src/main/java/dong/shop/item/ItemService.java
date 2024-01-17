@@ -9,10 +9,14 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ItemService {
 
-    private final MemoryItemRepository itemRepository;
+    private final ItemRepository itemRepository;
 
     public List<Item> selectAllItems() {
         return itemRepository.findItemAll();
+    }
+    public Item updateItem(ItemDto itemDto) {
+        Item updateItem = Item.of(itemDto.getItemName(), itemDto.getPrice(), itemDto.getInfo(), itemDto.getItemStatus());
+        return itemRepository.updateItem(updateItem);
     }
 
 }

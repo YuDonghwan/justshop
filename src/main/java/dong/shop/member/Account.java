@@ -1,5 +1,8 @@
 package dong.shop.member;
 
+import lombok.Getter;
+
+@Getter
 public class Account {
 
     private int account;

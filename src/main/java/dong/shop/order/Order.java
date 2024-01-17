@@ -20,8 +20,6 @@ public class Order {
     private Delivery delivery;
     private Member member;
 
-    private List<Item> buyItems;
-
 
     public Order() {
     }

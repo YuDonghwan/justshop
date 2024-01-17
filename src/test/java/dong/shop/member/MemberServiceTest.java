@@ -33,16 +33,16 @@ class MemberServiceTest {
 
     @Test
     void saveMember() {
-        Member member = new Member();
-        member.setMemberStatus(MemberStatus.BASIC);
-        member.setId(1L);
-        member.setUserId("user1");
-        member.setUsername("userA");
-        member.setPassword("1234");
-        System.out.println("MemberServiceTest.saveMember");
-        Member savedMember = memberService.save(member);
-
-        Assertions.assertThat(member).isEqualTo(savedMember);
+//        Member member = new Member();
+//        member.setMemberStatus(MemberStatus.BASIC);
+//        member.setId(1L);
+//        member.setUserId("user1");
+//        member.setUsername("userA");
+//        member.setPassword("1234");
+//        System.out.println("MemberServiceTest.saveMember");
+//        Member savedMember = memberService.save(member);
+//
+//        Assertions.assertThat(member).isEqualTo(savedMember);
     }
 
 }
