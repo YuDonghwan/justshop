@@ -1,18 +1,20 @@
 package dong.shop.item;
 
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping("/items")
 @RequiredArgsConstructor
@@ -27,15 +29,29 @@ public class ItemController {
         return "/item/items";
     }
     @GetMapping("/addItem")
-    public String addItem() {
-        return "/item/addItem";
+    public String addItem(@ModelAttribute Item item) {
+
+        return "/item/addItemForm";
     }
 
     @PostMapping("/addItem")
-    public String saveItem(Item item, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
+    public String saveItem(@Validated @ModelAttribute("item") ItemSaveDto item, BindingResult bindingResult, RedirectAttributes redirectAttributes) {
 
-        //검증 로직 추가
-        bindingResult.rejectValue("item","required",null,"아이템명은 필수입니다.");
+
+        //특정 필드가 아닌 복합 룰 검증
+        if (item.getPrice() != null && item.getQuantity() != null) {
+            int resultPrice = item.getPrice() * item.getQuantity();
+            if (resultPrice < 10000) {
+                bindingResult.reject("totalPriceMin", new Object[]{10000,
+                        resultPrice}, null);
+            }
+        }
+
+        if (bindingResult.hasErrors()) {
+            log.info("errors={}", bindingResult);
+            return "item/addItemForm";
+        }
+        log.info("bindingResult = {}", bindingResult);
 
         //성공 시
         return "redirect:/item/itemDetail";
@@ -47,7 +63,7 @@ public class ItemController {
     }
 
     @PostMapping("/updateItem")
-    public String editItem(ItemDto itemDto, Model model,RedirectAttributes redirectAttributes) {
+    public String editItem(ItemSaveDto itemDto, Model model, RedirectAttributes redirectAttributes) {
 
 
         Item updatedItem = itemService.updateItem(itemDto);

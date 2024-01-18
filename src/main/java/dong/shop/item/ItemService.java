@@ -14,8 +14,8 @@ public class ItemService {
     public List<Item> selectAllItems() {
         return itemRepository.findItemAll();
     }
-    public Item updateItem(ItemDto itemDto) {
-        Item updateItem = Item.of(itemDto.getItemName(), itemDto.getPrice(), itemDto.getInfo(), itemDto.getItemStatus());
+    public Item updateItem(ItemSaveDto itemDto) {
+        Item updateItem = Item.of(itemDto.getItemName(), itemDto.getPrice(),itemDto.getQuantity(), itemDto.getInfo());
         return itemRepository.updateItem(updateItem);
     }
 
