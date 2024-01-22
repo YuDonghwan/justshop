@@ -1,8 +1,8 @@
-package dong.shop.member;
+package dong.shop.web.member;
 
-import dong.shop.order.OrderRequestDto;
+import dong.shop.member.MemberService;
+import dong.shop.web.member.MemberUpdateDto;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ public class MemberController {
     private final MemberService memberService;
 
     @PostMapping("/joinMember")
-    public String joinMember(MemberDto mDto, Model model){
+    public String joinMember(MemberUpdateDto mDto, Model model){
 
         //검증로직 추가
 

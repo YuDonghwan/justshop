@@ -13,8 +13,7 @@ public class Delivery {
 
     public String callCompanyName() {
         String[] companys = {"우체국 택배","한진택배","CJ대한통운","롯데택배","경동택배","로젠택배","GS25편의점택배"};
-        Random random = new Random();
-        return companys[random.nextInt(7)];
+        return companys[new Random().nextInt(7)];
     }
 
     public String generateWayBillNum() {

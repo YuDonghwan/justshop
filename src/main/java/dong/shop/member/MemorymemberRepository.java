@@ -3,6 +3,7 @@ package dong.shop.member;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class MemorymemberRepository implements MemberRepository{
@@ -26,4 +27,14 @@ public class MemorymemberRepository implements MemberRepository{
     public List<Member> findAll() {
         return new ArrayList<>(store.values());
     }
+
+    @Override
+    public Optional<Member> findMemberByLoginId(String loginId) {
+
+        return findAll().stream()
+                .filter(member -> loginId.equals(member.getUserId()))
+                .findFirst();
+    }
+
+
 }

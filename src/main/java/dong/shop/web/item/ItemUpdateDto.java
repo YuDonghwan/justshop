@@ -1,4 +1,6 @@
-package dong.shop.item;
+package dong.shop.web.item;
+
+import dong.shop.item.ItemStatus;
 
 public class ItemUpdateDto {
 

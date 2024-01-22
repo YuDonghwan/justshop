@@ -1,5 +1,6 @@
 package dong.shop.member;
 
+import dong.shop.web.member.MemberUpdateDto;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -22,16 +23,5 @@ public class Member {
     public Member(String username, MemberStatus memberStatus) {
         this.username = username;
         this.memberStatus = memberStatus;
-    }
-
-
-    public static Member of(MemberDto mDto) {
-        return Member.builder()
-                .userId(mDto.getUserId())
-                .password(mDto.getPassword())
-                .username(mDto.getUsername())
-                .account(mDto.getAccount())
-                .memberStatus(mDto.getMemberStatus())
-                .build();
     }
 }

@@ -1,4 +1,4 @@
-package dong.shop.order;
+package dong.shop.web.order;
 
 import dong.shop.delivery.Delivery;
 import dong.shop.item.Item;

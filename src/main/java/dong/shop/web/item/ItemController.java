@@ -1,5 +1,7 @@
-package dong.shop.item;
+package dong.shop.web.item;
 
+import dong.shop.item.Item;
+import dong.shop.item.ItemService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;

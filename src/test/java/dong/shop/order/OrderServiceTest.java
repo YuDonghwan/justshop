@@ -3,10 +3,10 @@ package dong.shop.order;
 import dong.shop.discount.DiscountPolicy;
 import dong.shop.item.Item;
 import dong.shop.item.MemoryItemRepository;
-import dong.shop.item.ItemStatus;
 import dong.shop.member.Member;
-import dong.shop.member.MemberDto;
+import dong.shop.web.member.MemberUpdateDto;
 import dong.shop.member.MemberService;
+import dong.shop.web.order.OrderRequestDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -35,11 +35,11 @@ class OrderServiceTest {
     void addMember() {
         System.out.println("OrderServiceTest.addMember");
 
-        MemberDto userA = new MemberDto("usera", "1234", "userA", "서울");
-        MemberDto userB = new MemberDto("userb", "1234", "userB", "부산");
-        MemberDto userC = new MemberDto("userc", "1234", "userC", "대구");
+        MemberUpdateDto userA = new MemberUpdateDto("usera", "1234", "userA", "서울");
+        MemberUpdateDto userB = new MemberUpdateDto("userb", "1234", "userB", "부산");
+        MemberUpdateDto userC = new MemberUpdateDto("userc", "1234", "userC", "대구");
 
-        MemberDto.of("userD","1234","userD","대전");
+        MemberUpdateDto.of("userD","1234","userD","대전");
 
         memberService.save(userA);
         memberService.save(userB);

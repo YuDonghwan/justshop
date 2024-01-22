@@ -1,5 +1,7 @@
-package dong.shop.member;
+package dong.shop.web.member;
 
+import dong.shop.member.Account;
+import dong.shop.member.MemberStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,7 +9,7 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
-public class MemberDto {
+public class MemberUpdateDto {
     private Long id;
     private String userId;
     private String password;
@@ -16,7 +18,7 @@ public class MemberDto {
     private Account account;
     private MemberStatus memberStatus;
 
-    public MemberDto(String userId, String password, String username, String address) {
+    public MemberUpdateDto(String userId, String password, String username, String address) {
         this.userId = userId;
         this.password = password;
         this.username = username;
@@ -24,14 +26,14 @@ public class MemberDto {
         this.account = new Account();
     }
 
-    public MemberDto(String userId, String password, String username, String address, Account account, MemberStatus memberStatus) {
+    public MemberUpdateDto(String userId, String password, String username, String address, Account account, MemberStatus memberStatus) {
         this(userId,password,username,address);
         this.memberStatus = memberStatus;
     }
 
     //테스트용 builder
-    public static MemberDto of(String userId, String password, String username, String address) {
-        return MemberDto.builder()
+    public static MemberUpdateDto of(String userId, String password, String username, String address) {
+        return MemberUpdateDto.builder()
                 .userId(userId)
                 .password(password)
                 .username(username)

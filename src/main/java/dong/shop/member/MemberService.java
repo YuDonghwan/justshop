@@ -1,5 +1,6 @@
 package dong.shop.member;
 
+import dong.shop.web.member.MemberUpdateDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,7 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public Member save(MemberDto memberDto) {
+    public Member save(MemberUpdateDto memberDto) {
         Member newMember = Member.of(memberDto);
         return memberRepository.save(newMember);
     }
