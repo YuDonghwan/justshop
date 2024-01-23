@@ -2,7 +2,9 @@ package dong.shop.web.exception;
 
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.io.IOException;
@@ -26,6 +28,11 @@ public class ServletExController {
 
     @GetMapping("/error/arg-ex")
     public void errorArg(HttpServletResponse response) throws IOException {
-        throw new IllegalArgumentException("인자 에러");
+        throw new UserException("인자 에러");
+    }
+
+    @ExceptionHandler(IllegalArgumentException.class)
+    public ResponseEntity<String> handleIllegalArgumentException(IllegalArgumentException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(ex.getMessage());
     }
 }

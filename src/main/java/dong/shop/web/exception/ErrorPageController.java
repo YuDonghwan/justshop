@@ -3,7 +3,10 @@ package dong.shop.web.exception;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import static jakarta.servlet.RequestDispatcher.*;
@@ -11,6 +14,9 @@ import static jakarta.servlet.RequestDispatcher.*;
 @Slf4j
 //@Controller
 public class ErrorPageController {
+
+
+
 
     @RequestMapping("/error-page/500")
     public String errorPage500(HttpServletRequest request, HttpServletResponse response) {
@@ -25,7 +31,6 @@ public class ErrorPageController {
         printErrorInfo(request);
         return "error/error-page/404";
     }
-
 
     private void printErrorInfo(HttpServletRequest request) {
         log.info("ERROR_EXCEPTION: {}", request.getAttribute(ERROR_EXCEPTION));
