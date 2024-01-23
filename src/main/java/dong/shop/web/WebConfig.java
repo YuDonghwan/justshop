@@ -1,6 +1,7 @@
 package dong.shop.web;
 
 import dong.shop.web.exception.MyHandlerExceptionResolver;
+import dong.shop.web.exception.UserHandlerExceptionResolver;
 import dong.shop.web.interceptor.LogInterceptor;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Configuration;
@@ -20,10 +21,15 @@ public class WebConfig implements WebMvcConfigurer {
                 .order(1)
                 .addPathPatterns("/**")
                 .excludePathPatterns("/css/**","/*.ico","/error");
+
+        registry.addInterceptor(new LogInterceptor())
+                .order(1)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/","/css/**","/*.ico","/error","/login","/logout");
     }
 
     @Override
     public void extendHandlerExceptionResolvers(List<HandlerExceptionResolver> resolvers) {
-        resolvers.add(new MyHandlerExceptionResolver());
+        resolvers.add(new UserHandlerExceptionResolver());
     }
 }
