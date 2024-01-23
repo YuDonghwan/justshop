@@ -13,7 +13,7 @@ public class MemberService {
     private final MemberRepository memberRepository;
 
     public Member save(MemberUpdateDto memberDto) {
-        Member newMember = Member.of(memberDto);
+        Member newMember = new Member(memberDto.getUserId(), memberDto.getPassword(), memberDto.getUsername(), memberDto.getAddress());
         return memberRepository.save(newMember);
     }
 

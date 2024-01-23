@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link th:href="@{/css/bootstrap.min.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/bootstrap.rtl.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/bootstrap-grid.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/bootstrap-grid.rtl.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/bootstrap-reboot.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/bootstrap-reboot.rtl.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/bootstrap-utilities.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <link th:href="@{/css/bootstrap.utilities.rtl.css}" href="../css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .container {
+      max-width: 560px;
+    }
+  </style>
+</head>
+<body>
+<div class="container text-center">
+  <div class="row align-items-start">
+    <button th:onclick="|location.href='@{/login}'|">
+      로그인 화면
+    </button>
+  <button th:onclick="|location.href='@{/}'|">
+      사용자 - 아이템 목록
+    </button>
+<button th:onclick="|location.href='@{/items}'|">
+      관리자 목록
+    </button>
+  </div>
+</div>
+</body>
+</html>

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class LoginService {
 
-    private final MemorymemberRepository memberRepository;
+    private final MemberRepository memberRepository;
 
     public Member login(String loginId, String password) {
 
