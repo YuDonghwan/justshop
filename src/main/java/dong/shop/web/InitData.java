@@ -21,6 +21,7 @@ public class InitData {
         itemRepository.saveItem(new Item(1L,"사과",10000,10));
         itemRepository.saveItem(new Item(2L,"귤",16000,500));
         itemRepository.saveItem(new Item(3L,"복숭아",45000,100));
+        itemRepository.saveItem(new Item(4L,"자두",8000,100));
 
         Member member = new Member(1L,"test","test!","userA","서울 천호동", MemberStatus.BASIC,new Account());
         Member admin = new Member(2L,"aaa","1234","userA","서울 천호동", MemberStatus.ADMIN,new Account());

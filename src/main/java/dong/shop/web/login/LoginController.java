@@ -21,13 +21,28 @@ public class LoginController {
 
     //회원가입 화면
     @GetMapping("/signUp")
-    public String signUpForm() {
+    public String signUpForm(@Validated @ModelAttribute("member") MemberSaveDto member) {
+        return "login/signUp";
+    }
+
+    //회원가입 처리
+    @PostMapping("/signUp")
+    public String addMember(@Validated @ModelAttribute("member") MemberSaveDto member) {
+
+
         return "login/signUp";
     }
 
     //로그인 화면 호출
     @GetMapping
-    public String loginForm(@ModelAttribute("loginForm") MemberSaveDto loginForm) {
+    public String loginForm(@ModelAttribute("loginForm") MemberSaveDto loginForm,HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        Member sessionMember = (Member) session.getAttribute(SessionConstant.LOGIN_MEMBER.getValue());
+        if(null != sessionMember) {
+            return "/mypage/info";
+        }
+
+
         return "login/loginForm";
     }
 

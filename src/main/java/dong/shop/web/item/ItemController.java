@@ -28,12 +28,12 @@ public class ItemController {
     public String items(Item item , Model model) {
         List<Item> items = itemService.selectAllItems();
         model.addAttribute("items",items);
-        return "/item/items";
+        return "/admin/item/items";
     }
     @GetMapping("/addItem")
     public String addItem(@ModelAttribute Item item) {
 
-        return "/item/addItemForm";
+        return "/admin/item/addItemForm";
     }
 
     @PostMapping("/addItem")
@@ -51,12 +51,12 @@ public class ItemController {
 
         if (bindingResult.hasErrors()) {
             log.info("errors={}", bindingResult);
-            return "item/addItemForm";
+            return "/admin/item/addItemForm";
         }
         log.info("bindingResult = {}", bindingResult);
 
         //성공 시
-        return "redirect:/item/itemDetail";
+        return "redirect:/admin/item/itemDetail";
     }
 
     @GetMapping("/updateItem")
@@ -70,6 +70,6 @@ public class ItemController {
 
         Item updatedItem = itemService.updateItem(itemDto);
         redirectAttributes.addAttribute("updateItem",updatedItem);
-        return "redirect:/item/itemDetail";
+        return "redirect:/admin/item/itemDetail";
     }
 }
