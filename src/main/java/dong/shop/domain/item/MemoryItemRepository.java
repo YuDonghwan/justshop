@@ -27,7 +27,11 @@ public class MemoryItemRepository implements ItemRepository{
     }
 
     @Override
-    public List<Item> findItemAll() {return new ArrayList<>(itemStore.values());}
+    public List<Item> findItemAll() {
+
+        return new ArrayList<>(itemStore.values());
+
+    }
 
     @Override
     public Item updateItem(Item item) {
