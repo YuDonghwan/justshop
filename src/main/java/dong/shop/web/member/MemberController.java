@@ -1,7 +1,6 @@
 package dong.shop.web.member;
 
-import dong.shop.member.MemberService;
-import dong.shop.web.member.MemberUpdateDto;
+import dong.shop.domain.member.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

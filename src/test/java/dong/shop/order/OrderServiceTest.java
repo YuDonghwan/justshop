@@ -1,11 +1,14 @@
 package dong.shop.order;
 
-import dong.shop.discount.DiscountPolicy;
-import dong.shop.item.Item;
-import dong.shop.item.MemoryItemRepository;
-import dong.shop.member.Member;
+import dong.shop.domain.discount.DiscountPolicy;
+import dong.shop.domain.item.Item;
+import dong.shop.domain.item.MemoryItemRepository;
+import dong.shop.domain.member.Member;
+import dong.shop.domain.order.Order;
+import dong.shop.domain.order.OrderRepository;
+import dong.shop.domain.order.OrderService;
 import dong.shop.web.member.MemberUpdateDto;
-import dong.shop.member.MemberService;
+import dong.shop.domain.member.MemberService;
 import dong.shop.web.order.OrderRequestDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,9 +23,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 class OrderServiceTest {
 
     @Autowired
-    private  OrderService orderService;
+    private OrderService orderService;
     @Autowired
-    private  OrderRepository orderRepository;
+    private OrderRepository orderRepository;
     @Autowired
     private  MemberService memberService;
     @Autowired

@@ -1,5 +1,6 @@
 package dong.shop.web.interceptor;
 
+import dong.shop.domain.member.Member;
 import dong.shop.web.session.SessionConstant;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -24,6 +25,9 @@ public class LoginCheckInterceptor implements HandlerInterceptor {
             response.sendRedirect("/login?redirectURL=" + requestURI);
             return false;
         }
+
+        Member member = (Member) session.getAttribute(SessionConstant.LOGIN_MEMBER.getValue());
+        log.info("USER_ID[{}][{}]",member.getId(),requestURI);
 
         return true;
     }
