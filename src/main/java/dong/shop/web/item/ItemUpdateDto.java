@@ -1,6 +1,6 @@
 package dong.shop.web.item;
 
-import dong.shop.item.ItemStatus;
+import dong.shop.domain.item.ItemStatus;
 
 public class ItemUpdateDto {
 

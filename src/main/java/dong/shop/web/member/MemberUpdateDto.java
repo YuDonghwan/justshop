@@ -1,7 +1,7 @@
 package dong.shop.web.member;
 
-import dong.shop.member.Account;
-import dong.shop.member.MemberStatus;
+import dong.shop.domain.member.Account;
+import dong.shop.domain.member.MemberStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;

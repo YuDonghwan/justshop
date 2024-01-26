@@ -1,5 +1,7 @@
 package dong.shop.member;
 
+import dong.shop.domain.member.Member;
+import dong.shop.domain.member.MemberService;
 import dong.shop.web.member.MemberUpdateDto;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,7 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 class MemberServiceTest {
 
     @Autowired
-   MemberService memberService;
+    MemberService memberService;
 
     @BeforeEach
     void addMember() {

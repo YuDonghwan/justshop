@@ -1,9 +1,7 @@
 package dong.shop.web.login;
 
-import dong.shop.login.LoginService;
-import dong.shop.member.Member;
-import dong.shop.member.MemberService;
-import dong.shop.member.MemorymemberRepository;
+import dong.shop.domain.login.LoginService;
+import dong.shop.domain.member.Member;
 import dong.shop.web.member.MemberSaveDto;
 import dong.shop.web.session.SessionConstant;
 import jakarta.servlet.http.HttpServletRequest;
@@ -22,9 +20,9 @@ public class LoginController {
     private final LoginService loginService;
 
     //회원가입 화면
-    @GetMapping("/signUpForm")
+    @GetMapping("/signUp")
     public String signUpForm() {
-        return "login/signUpForm";
+        return "login/signUp";
     }
 
     //로그인 화면 호출
@@ -34,9 +32,9 @@ public class LoginController {
     }
 
     @PostMapping
-    public String login(@Validated @ModelAttribute MemberSaveDto member, BindingResult bindingResult, HttpServletRequest request, @RequestParam(defaultValue = "/") String redirectURL) {
+    public String login(@Validated @ModelAttribute("loginForm") MemberSaveDto loginForm, BindingResult bindingResult, HttpServletRequest request, @RequestParam(defaultValue = "/") String redirectURL) {
 
-        Member loginMember = loginService.login(member.getUserId(), member.getPassword());
+        Member loginMember = loginService.login(loginForm.getUserId(), loginForm.getPassword());
 
         if(null == loginMember) {
             bindingResult.reject("loginFail", "아이디 또는 비밀번호가 맞지 않습니다.");

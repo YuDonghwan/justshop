@@ -1,10 +1,13 @@
 package dong.shop.web;
 
+import dong.shop.domain.member.Member;
+import dong.shop.domain.member.MemorymemberRepository;
 import dong.shop.web.exception.MyHandlerExceptionResolver;
 import dong.shop.web.exception.UserHandlerExceptionResolver;
 import dong.shop.web.interceptor.LogInterceptor;
 import dong.shop.web.interceptor.LoginCheckInterceptor;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -18,15 +21,15 @@ import java.util.List;
 public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new LogInterceptor())
+/*        registry.addInterceptor(new LogInterceptor())
                 .order(1)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/css/**","/*.ico","/error");
+                .excludePathPatterns("/css/**","/*.ico","/error");*/
 
         registry.addInterceptor(new LoginCheckInterceptor())
                 .order(2)
                 .addPathPatterns("/**")
-                .excludePathPatterns("/","/css/**","/*.ico","/error","/login","/logout");
+                .excludePathPatterns("/","/css/**","/*.ico","/error","/login","/logout","/lib/**","/js/**","/scss/**","/img/**");
     }
 
     @Override

@@ -1,9 +1,7 @@
 package dong.shop.web.order;
 
-import dong.shop.delivery.Delivery;
-import dong.shop.item.Item;
-import dong.shop.member.Member;
-import lombok.Data;
+import dong.shop.domain.item.Item;
+import dong.shop.domain.member.Member;
 import lombok.Getter;
 import lombok.ToString;
 
