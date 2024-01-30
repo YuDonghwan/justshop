@@ -24,7 +24,18 @@ public class HomeController {
         List<Item> items = itemRepository.findItemAll();
         model.addAttribute("items",items);
 
-        return "/index";
+        return "index";
+    }
+
+
+
+    @GetMapping("/layout")
+    public String layout() {
+        return "/template/test/test";
+    }
+    @GetMapping("/layout2")
+    public String layout2() {
+        return "/template/test/test2";
     }
 
 }

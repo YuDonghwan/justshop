@@ -28,4 +28,9 @@ public class ShopController {
         return "/shop/shopList";
     }
 
+    @GetMapping("/layout")
+    public String layout() {
+        return "/layout/layoutTest";
+    }
+
 }

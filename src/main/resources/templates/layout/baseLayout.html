@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--라이브러리 참조 : Thymeleaf & Thymeleaf Layout -->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<!--공통 JS / CSS 영역을 관리하는 환경 영역-->
+<!--<head th:replace="~{/layout :: CmmConfigFragment}">-->
+    <head th:replace="~{/layout/commonConfig :: CmmConfigFragment}">
+
+    <title layout:title-pattern="$LAYOUT_TITLE : $CONTENT_TITLE">공통 타이틀</title>
+<!--    $LAYOUT_TITLE - 레이아웃의 타이틀 (구버전 : $DECORATOR_TITLE 는 deprecated 됨)
+$CONTENT_TITLE - 각 페이지의 타이틀-->
+</head>
+
+<!--Header 영역을 참조합니다.-->
+<header th:insert="~{/layout/commonHeader :: CmmHeaderFragment}"></header>
+<body>
+
+<!--Content 내용 영역을 참조합니다-->
+<th:block layout:fragment="CmmContent"></th:block>
+
+</body>
+<!--Footer 영역을 참조합니다.-->
+<footer th:insert="~{/layout/commonFooter :: CmmFooterFragment}"></footer>
+</html>
