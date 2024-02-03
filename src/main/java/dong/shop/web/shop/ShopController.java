@@ -28,6 +28,15 @@ public class ShopController {
         return "/shop/shopList";
     }
 
+    @GetMapping("/shopDetail")
+    public String shopDetail(Model model, HttpServletRequest request) {
+
+        Item item = itemRepository.findItemById(1L);
+        request.setAttribute("item",item);
+
+        return "/shop/shopDetail";
+    }
+
     @GetMapping("/layout")
     public String layout() {
         return "/layout/layoutTest";
