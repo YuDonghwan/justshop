@@ -23,7 +23,7 @@ public class ShopController {
     public String shopList(Model model, HttpServletRequest request) {
 
         List<Item> items = itemRepository.findItemAll();
-        request.setAttribute("items",items);
+        model.addAttribute("items",items);
 
         return "/shop/shopList";
     }

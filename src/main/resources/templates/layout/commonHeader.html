@@ -5,8 +5,8 @@
     <div class="container topbar bg-primary d-none d-lg-block">
       <div class="d-flex justify-content-between">
         <div class="top-info ps-2">
-          <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white">123 Street, New York</a></small>
-          <small class="me-3"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>
+          <small class="me-3"><i class="fas fa-map-marker-alt me-2 text-secondary"></i> <a href="#" class="text-white" th:text="|서울특별시 강동구 성내동|"></a></small>
+          <small class="me-3" th:text="|ymj04310@naver.com|"><i class="fas fa-envelope me-2 text-secondary"></i><a href="#" class="text-white">Email@Example.com</a></small>
         </div>
         <div class="top-link pe-2">
           <a href="#" class="text-white"><small class="text-white mx-2">Privacy Policy</small>/</a>
@@ -23,11 +23,11 @@
         </button>
         <div class="collapse navbar-collapse bg-white" id="navbarCollapse">
           <div class="navbar-nav mx-auto">
-            <a th:onclick="|location.href='@{/}'|" class="nav-item nav-link active">Home</a>
-            <a th:onclick="|location.href='@{/shop/shopList}'|" class="nav-item nav-link">Shop</a>
-            <a th:onclick="|location.href='@{/shop/shopDetail}'|" class="nav-item nav-link">Shop Detail</a>
+            <a th:onclick="|location.href='@{/}'|" class="nav-item nav-link active">전체상품</a>
+            <a th:onclick="|location.href='@{/shop/shopList}'|" class="nav-item nav-link">농산물</a>
+            <a th:onclick="|location.href='@{/shop/shopDetail}'|" class="nav-item nav-link">수산물</a>
             <div class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+              <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">축산물</a>
               <div class="dropdown-menu m-0 bg-secondary rounded-0">
                 <a href="cart.html" class="dropdown-item">Cart</a>
                 <a href="chackout.html" class="dropdown-item">Chackout</a>
