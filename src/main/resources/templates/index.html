@@ -5,8 +5,8 @@
       layout:decorate="~{/layout/baseLayout}"
       layout:fragment="CmmContent">
 <body>
-<!-- Hero Start -->
-<div class="container-fluid py-5 mb-5 hero-header">
+<!-- 광고 배너 -->
+<!--<div class="container-fluid py-5 mb-5 hero-header">
   <div class="container py-5">
     <div class="row g-5 align-items-center">
       <div class="col-md-12 col-lg-7">
@@ -41,7 +41,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 <!-- Hero End -->
 
 <!--
@@ -147,7 +147,7 @@
 
 
                 <th:block th:each="item : ${items}">
-                <div class="col-md-6 col-lg-4 col-xl-3">
+                <button th:onclick="|location.href='@{/shop/shopDetail}'|" th:attr="data-item-id=${item.itemId}" class="col-md-6 col-lg-4 col-xl-3">
                   <div class="rounded position-relative fruite-item">
                     <div class="fruite-img">
                       <img src="img/fruite-item-5.jpg" class="img-fluid w-100 rounded-top" alt="">
@@ -162,7 +162,7 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </button>
                 </th:block>
 
 
