@@ -2,6 +2,7 @@ package dong.shop.web.login;
 
 import dong.shop.domain.login.LoginService;
 import dong.shop.domain.member.Member;
+import dong.shop.domain.member.MemberStatus;
 import dong.shop.web.member.MemberSaveDto;
 import dong.shop.web.session.SessionConstant;
 import jakarta.servlet.http.HttpServletRequest;
@@ -39,7 +40,12 @@ public class LoginController {
         HttpSession session = request.getSession();
         Member sessionMember = (Member) session.getAttribute(SessionConstant.LOGIN_MEMBER.getValue());
         if(null != sessionMember) {
-            return "/mypage/info";
+
+            if(MemberStatus.BASIC == sessionMember.getMemberStatus()) {
+                return "/mypage/userInfo";
+            } else {
+                return "/admin/adminInfo";
+            }
         }
 
 
@@ -47,7 +53,7 @@ public class LoginController {
     }
 
     @PostMapping
-    public String login(@Validated @ModelAttribute("loginForm") MemberSaveDto loginForm, BindingResult bindingResult, HttpServletRequest request, @RequestParam(defaultValue = "/") String redirectURL) {
+    public String login(@Validated @ModelAttribute("loginForm") MemberSaveDto loginForm, BindingResult bindingResult, HttpServletRequest request) {
 
         Member loginMember = loginService.login(loginForm.getUserId(), loginForm.getPassword());
 
@@ -59,7 +65,17 @@ public class LoginController {
 
         //세션에 로그인 회원 정보보관
         session.setAttribute(SessionConstant.LOGIN_MEMBER.getValue(),loginMember);
-        return "redirect:" + redirectURL;
+//        return "redirect:/" + redirectURL;
+        return "redirect:/";
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request) {
+
+        HttpSession session = request.getSession();
+        session.invalidate();
+
+        return "redirect:/";
     }
 
 }

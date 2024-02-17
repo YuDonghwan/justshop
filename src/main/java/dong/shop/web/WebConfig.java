@@ -6,6 +6,7 @@ import dong.shop.web.exception.MyHandlerExceptionResolver;
 import dong.shop.web.exception.UserHandlerExceptionResolver;
 import dong.shop.web.interceptor.LogInterceptor;
 import dong.shop.web.interceptor.LoginCheckInterceptor;
+import dong.shop.web.interceptor.PageIntercenptor;
 import org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -26,10 +27,15 @@ public class WebConfig implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/css/**","/*.ico","/error");*/
 
-//        registry.addInterceptor(new LoginCheckInterceptor())
-//                .order(2)
-//                .addPathPatterns("/**")
-//                .excludePathPatterns("/","/css/**","/*.ico","/error","/login/**","/logout","/lib/**","/js/**","/shop/shopList","/scss/**","/img/**","/layout/**");
+        registry.addInterceptor(new LoginCheckInterceptor())
+                .order(1)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/","/css/**","/*.ico","/error","/login/**","/logout","/lib/**","/js/**","/shop/shopList","/scss/**","/img/**","/layout/**");
+
+        registry.addInterceptor(new PageIntercenptor())
+                .order(2)
+                .addPathPatterns("/**")
+                .excludePathPatterns("/css/**","/*.ico","/error");
     }
 
     @Override
