@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -28,10 +29,10 @@ public class ShopController {
         return "/shop/shopList";
     }
 
-    @GetMapping("/shopDetail")
-    public String shopDetail(Model model, HttpServletRequest request) {
+    @GetMapping("/shopDetail/{itemId}")
+    public String shopDetail(@PathVariable Long itemId, Model model, HttpServletRequest request) {
 
-        Item item = itemRepository.findItemById(1L);
+        Item item = itemRepository.findItemById(itemId);
         request.setAttribute("item",item);
 
         return "/shop/shopDetail";
