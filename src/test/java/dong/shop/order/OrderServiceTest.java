@@ -47,14 +47,14 @@ class OrderServiceTest {
         memberService.save(userA);
         memberService.save(userB);
         memberService.save(userC);
-
+/*
         Item item1 = new Item(1L, "사과", 10000,1);
         Item item2 = new Item(2L, "배", 13000,2);
-        Item item3 = new Item(3L, "귤", 10000,3);
+        Item item3 = new Item(3L, "귤", 10000,3);*/
 
-         itemRepository.saveItem(item1);
+/*         itemRepository.saveItem(item1);
          itemRepository.saveItem(item2);
-         itemRepository.saveItem(item3);
+         itemRepository.saveItem(item3);*/
 
     }
 

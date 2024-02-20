@@ -15,8 +15,8 @@
             <a href="#" class="text-white" th:onclick="|location.href='@{/login/logout}'|"><small class="text-white ms-2">로그아웃</small></a>
           </th:block>
 
-          <th:block th:if="${#strings.isEmpty(loginMemberId)}">
-            <a href="#" class="text-white" th:onclick="|location.href='@{/login/logout}'|"><small class="text-white ms-2">로그인</small></a>
+          <th:block th:if="${null == loginMemberId}">
+            <a href="#" class="text-white" th:onclick="|location.href='@{/login}'|"><small class="text-white ms-2">로그인</small></a>
           </th:block>
 
         </div>

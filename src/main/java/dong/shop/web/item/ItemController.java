@@ -68,8 +68,8 @@ public class ItemController {
     public String editItem(ItemSaveDto itemDto, Model model, RedirectAttributes redirectAttributes) {
 
 
-        Item updatedItem = itemService.updateItem(itemDto);
-        redirectAttributes.addAttribute("updateItem",updatedItem);
+//        Item updatedItem = itemService.updateItem(itemDto);
+//        redirectAttributes.addAttribute("updateItem",updatedItem);
         return "redirect:/admin/item/itemDetail";
     }
 }
