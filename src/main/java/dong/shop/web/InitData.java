@@ -14,13 +14,13 @@ import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 
-@Component
+//@Component
 @RequiredArgsConstructor
 public class InitData {
     private final ItemRepository itemRepository;
     private final MemberRepository memberRepository;
 
-    @PostConstruct
+//    @PostConstruct
     public void init() {
 
         CmmFile appleImage = new CmmFile(1L,"png","apple.png","apple.png",1232L,"img/apple.png", LocalDateTime.now(),"FR");

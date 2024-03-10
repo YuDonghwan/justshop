@@ -29,8 +29,6 @@ public class LoginController {
     //회원가입 처리
     @PostMapping("/signUp")
     public String addMember(@Validated @ModelAttribute("member") MemberSaveDto member) {
-
-
         return "login/signUp";
     }
 

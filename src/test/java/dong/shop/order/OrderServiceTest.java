@@ -66,7 +66,6 @@ class OrderServiceTest {
         Order order = orderService.createOrder(orderRequestDto);
 
         System.out.println(order);
-        Assertions.assertThat(order.getItem()).isEqualTo(item);
     }
 
 }

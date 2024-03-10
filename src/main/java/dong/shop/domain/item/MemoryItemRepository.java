@@ -35,8 +35,8 @@ public class MemoryItemRepository implements ItemRepository{
 
     @Override
     public Item updateItem(Item item) {
-        itemStore.put(item.getItemId(), item);
-        return itemStore.get(item.getItemId());
+        itemStore.put(item.getId(), item);
+        return itemStore.get(item.getId());
     }
 
 

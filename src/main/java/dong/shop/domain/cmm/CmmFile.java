@@ -1,13 +1,25 @@
 package dong.shop.domain.cmm;
 
+import jakarta.persistence.*;
 import lombok.Getter;
 
 import java.time.LocalDateTime;
 
 @Getter
+@Entity
+@SequenceGenerator(
+        name = "CMM_FILE_SEQ_GEN",
+        sequenceName = "CMM_FILE_SEQ",
+        initialValue = 1,
+        allocationSize = 1
+)
 public class CmmFile {
 
-    private Long fileId;
+    @Id @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "CMM_FILE_SEQ_GEN"
+    )
+    private Long id;
     private String realFileName;
     private String localFileName;
     private Long size;
@@ -21,7 +33,7 @@ public class CmmFile {
 
     public CmmFile(Long fileId,String ext, String realFileName, String localFileName, Long size, String fileUrl, LocalDateTime regDate, String fileCd) {
 
-        this.fileId = fileId;
+        this.id = id;
         this.realFileName = realFileName;
         this.localFileName = localFileName;
         this.size = size;

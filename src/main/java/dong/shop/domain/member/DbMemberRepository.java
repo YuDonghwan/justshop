@@ -1,34 +1,35 @@
 package dong.shop.domain.member;
 
+import jakarta.persistence.EntityManager;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.Optional;
-import java.util.concurrent.ConcurrentHashMap;
 
-//@Repository
-public class MemorymemberRepository implements MemberRepository{
+@Repository
+@Slf4j
+@RequiredArgsConstructor
+public class DbMemberRepository implements MemberRepository{
 
-    private static Map<Long,Member> store = new ConcurrentHashMap<>();
-    private static Long sequence = 1L;
+    private final EntityManager em;
 
     @Override
     public Member save(Member member) {
-        store.put(sequence, member);
-        ++sequence;
+        em.persist(member);
         return member;
     }
 
     @Override
     public Member findById(Long id) {
-        return store.get(id);
+        return em.find(Member.class, id);
     }
 
     @Override
     public List<Member> findAll() {
-        return new ArrayList<>(store.values());
+        return em.createQuery("select m from Member m").getResultList();
     }
 
     @Override
@@ -38,6 +39,4 @@ public class MemorymemberRepository implements MemberRepository{
                 .filter(member -> loginId.equals(member.getUserId()))
                 .findFirst();
     }
-
-
 }

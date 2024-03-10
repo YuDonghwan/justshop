@@ -1,5 +1,6 @@
 package dong.shop.domain.member;
 
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -7,14 +8,28 @@ import lombok.Getter;
 @Getter
 @Builder
 @AllArgsConstructor
+@SequenceGenerator(
+        name="MEMBER_SEQ_GEN",
+        sequenceName="MEMBER_SEQ",
+        initialValue = 1,
+        allocationSize = 1
+)
+@Entity
 public class Member {
-
+    @Id
+    @GeneratedValue(
+            strategy = GenerationType.SEQUENCE,
+            generator = "MEMBER_SEQ_GEN"
+    )
+    @Column(name = "member_id")
     private Long id;
     private String userId;
     private String password;
     private String username;
     private String address;
     private MemberStatus memberStatus;
+
+    @Embedded
     private Account account;
 
     public Member() {

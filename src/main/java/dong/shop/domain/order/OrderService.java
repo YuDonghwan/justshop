@@ -23,7 +23,7 @@ public class OrderService {
         int resultPrice = discountPolicy.discount(orderRequestDto.getMember(), totalPrice);
         Delivery delivery = new Delivery();
 
-        return new Order(orderRequestDto.getItem(),orderRequestDto.getCount(),resultPrice,delivery,orderRequestDto.getMember());
+        return new Order(orderRequestDto.getCount(),resultPrice,delivery,orderRequestDto.getMember());
     }
 
 }
